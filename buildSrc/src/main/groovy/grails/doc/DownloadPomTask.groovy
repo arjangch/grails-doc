@@ -45,7 +45,7 @@ abstract class DownloadPomTask extends DefaultTask {
         if (version.endsWith('-SNAPSHOT')) {
             pomUrl = "https://repo.grails.org/ui/api/v1/download?repoKey=core&path=org%252Fgrails%252Fgrails-bom%252F${version}%252Fgrails-bom-${version}.pom&isNativeBrowsing=true"
         } else {
-            pomUrl = "https://repo1.maven.org/maven2/org/grails/grails-bom/${version}/grails-bom-${version}.pom"
+            pomUrl = "https://repo.grails.org/grails/core/org/grails/grails-bom/${version}/grails-bom-${version}.pom"
         }
 
         def pomContent = downloadPomContent(pomUrl)

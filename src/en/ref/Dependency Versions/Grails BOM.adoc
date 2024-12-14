@@ -22,10 +22,6 @@ This document provides information about the dependencies mentioned in the Grail
 | jakarta.annotation-api
 | {jakarta_annotation_jakarta_annotation_api_version}
 
-| jakarta.annotation
-| jakarta.annotation-api
-| {jakarta_annotation_jakarta_annotation_api_version}
-
 | org.codehaus.groovy
 | groovy, groovy-ant, groovy-console, groovy-dateutil, groovy-json, groovy-macro, groovy-nio, groovy-sql, groovy-swing, groovy-templates, groovy-xml
 | {org_codehaus_groovy_groovy_version}
@@ -45,10 +41,6 @@ This document provides information about the dependencies mentioned in the Grail
 | org.grails
 | grails-gorm-testing-support, grails-testing-support, grails-web-testing-support
 | {org_grails_grails_testing_support_version}
-
-| org.grails
-| scaffolding-core
-| {org_grails_scaffolding_core_version}
 
 | org.grails
 | views-json-testing-support

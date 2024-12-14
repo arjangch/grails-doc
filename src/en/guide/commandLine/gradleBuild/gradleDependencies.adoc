@@ -49,8 +49,7 @@ build.gradle, using Gradle Platforms:
 ----
 dependencies {
     implementation platform("org.grails:grails-bom:$grailsVersion")
-
-
+    // all other dependencies
 }
 ----
 

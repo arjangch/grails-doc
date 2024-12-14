@@ -9,7 +9,7 @@ Puneet Behl, Graeme Rocher, Peter Ledbrook, Marc Palmer, Jeff Brown, Luke Daley,
 include::introduction.adoc[]
 
 [[whatsNew]]
-=== What's new in Grails 6?
+=== What's new in Grails 7?
 
 include::introduction/whatsNew.adoc[]
 

@@ -747,7 +747,7 @@ include::async/asyncGorm.adoc[]
 include::async/asyncRequests.adoc[]
 
 [[asyncServletApi]]
-=== Servlet 3.0 Async
+=== Servlet 6.0.0 Async
 
 include::async/asyncServletApi.adoc[]
 

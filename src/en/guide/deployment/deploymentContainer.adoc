@@ -26,4 +26,4 @@ testImplementation "org.springframework.boot:spring-boot-starter-tomcat"
 
 == Application servers
 
-The Grails framework requires that runtime containers support Servlet 3.0 and above. By default, Grails framework applications are bundled with an embeddable Tomcat and testing is primarily done with Tomcat.  Any servlet container meeting the minimum requirements should be able to run Grails framework applications, but some workarounds may be required for container-specific bugs or configurations.
+The Grails framework requires that runtime containers support Servlet 6.0.0 and above. By default, Grails framework applications are bundled with an embeddable Tomcat and testing is primarily done with Tomcat.  Any servlet container meeting the minimum requirements should be able to run Grails framework applications, but some workarounds may be required for container-specific bugs or configurations.

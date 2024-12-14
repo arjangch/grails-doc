@@ -41,7 +41,7 @@ Note that if you have many custom marshallers it is recommended you split the re
 ----
 class CustomMarshallerRegistrar {
 
-    @javax.annotation.PostConstruct
+    @jakarta.annotation.PostConstruct
     void registerMarshallers() {
         JSON.registerObjectMarshaller(DateTime) {
             return it?.toString("yyyy-MM-dd'T'HH:mm:ss'Z'")

@@ -1,9 +1,9 @@
-:todoGormVersion: X.X.X
-:todoGradleVersion: X.X.X
-:todoGrailsVersion: X.X.X
-:todoGrailsGradlePluginVersion: X.X.X
-:todoSpringVersion: X.X.X
-:todoSpringBootVersion: X.X.X
+:GormVersion: 9.0.0-M1
+:GradleVersion: 8.11.1
+:GrailsVersion: 7.0.0-M1
+:GrailsGradlePluginVersion: 7.0.0-M2
+:SpringVersion: 6.2.1
+:SpringBootVersion: 3.4.0
 
 
 ### Upgrade Instructions for Grails and Related Dependencies
@@ -23,8 +23,8 @@ To upgrade to Grails 7, it's important to configure the appropriate versions in 
 .gradle.properties
 [,,subs="attributes"]
 ----
-grailsVersion={todoGrailsVersion}
-grailsGradlePluginVersion={todoGrailsGradlePluginVersion}
+grailsVersion={GrailsVersion}
+grailsGradlePluginVersion={GrailsGradlePluginVersion}
 ----
 
 By specifying the above versions, you'll gain access to the latest features, improvements, and bug fixes introduced in Grails 7. Upgrading to this version empowers your application with enhanced performance and improved security. Additionally, it allows you to leverage the latest advancements in the Grails framework for a more efficient and secure development experience.
@@ -36,33 +36,33 @@ If your project utilizes GORM, ensure to update the version in the `gradle.prope
 .gradle.properties
 [,,subs="attributes"]
 ----
-gormVersion={todoGormVersion}
+gormVersion={GormVersion}
 ----
 
-By upgrading to GORM {todoGormVersion}, you will benefit from essential updates and optimizations. This upgrade guarantees seamless interactions with your database and enhances your data management experience. Staying current with GORM allows you to take advantage of the latest database features and improvements, thereby optimizing the performance and functionality of your application.
+By upgrading to GORM {GormVersion}, you will benefit from essential updates and optimizations. This upgrade guarantees seamless interactions with your database and enhances your data management experience. Staying current with GORM allows you to take advantage of the latest database features and improvements, thereby optimizing the performance and functionality of your application.
 
 #### 5. Gradle Version:
 
-Grails 7 uses Gradle {todoGradleVersion} which offers performance improvements, bug fixes, and new features over previous versions. Upgrading to the latest Gradle version helps accelerate your build processes and ensures compatibility with other dependencies.
+Grails 7 uses Gradle {GradleVersion} which offers performance improvements, bug fixes, and new features over previous versions. Upgrading to the latest Gradle version helps accelerate your build processes and ensures compatibility with other dependencies.
 
-##### 5.1. Upgrade to Gradle {todoGradleVersion}
+##### 5.1. Upgrade to Gradle {GradleVersion}
 
-Run the following command to update the Gradle wrapper to the desired version (e.g., Gradle {todoGradleVersion}):
+Run the following command to update the Gradle wrapper to the desired version (e.g., Gradle {GradleVersion}):
 
 [,console,subs="attributes"]
 ----
-./gradlew wrapper --gradle-version {todoGradleVersion}
+./gradlew wrapper --gradle-version {GradleVersion}
 ----
 
 This command will download the specified Gradle version and update the Gradle wrapper settings in your project.
 
 ##### 5.2. Check Gradle Version:
 
-After the command finishes, you can verify that the Gradle version has been updated by checking the `gradle-wrapper.properties` file located in the `gradle/wrapper` directory. The `distributionUrl` in the file should now point to the Gradle {todoGradleVersion} distribution:
+After the command finishes, you can verify that the Gradle version has been updated by checking the `gradle-wrapper.properties` file located in the `gradle/wrapper` directory. The `distributionUrl` in the file should now point to the Gradle {GradleVersion} distribution:
 
 [,,subs="attributes"]
 ----
-distributionUrl=https\://services.gradle.org/distributions/gradle-{todoGradleVersion}-bin.zip
+distributionUrl=https\://services.gradle.org/distributions/gradle-{GradleVersion}-bin.zip
 ----
 
 
@@ -76,25 +76,26 @@ After updating the Gradle wrapper, you can now build your Grails project using t
 
 This will initiate the build process with the new Gradle version.
 
-#### 6. Spring {todoSpringVersion}:
+#### 6. Spring {SpringVersion}:
 
-Grails 7 is built on Spring {todoSpringVersion}. If your project uses Spring-specific features, refer to the https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x[Upgrading to Spring 6 guide].
+Grails 7 is built on Spring {SpringVersion}. If your project uses Spring-specific features, refer to the https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x[Upgrading to Spring 6 guide].
 
-Spring {todoSpringVersion} introduces enhancements and fixes to the Spring framework, providing you with the latest improvements in dependency injection, web frameworks, and other Spring-related functionalities.
+Spring {SpringVersion} introduces enhancements and fixes to the Spring framework, providing you with the latest improvements in dependency injection, web frameworks, and other Spring-related functionalities.
 
-#### 7. Spring Boot {todoSpringBootVersion}:
+#### 7. Spring Boot {SpringBootVersion}:
 
-Grails 7 updates to Spring Boot {todoSpringBootVersion}. For more information, consult the https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.3-Release-Notes[Spring Boot 3 Release Notes]
+Grails 7 updates to Spring Boot {SpringBootVersion}. For more information, consult the https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.3-Release-Notes[Spring Boot 3 Release Notes]
 
-Spring Boot {todoSpringBootVersion} comes with new features, performance enhancements, and compatibility improvements, making it a solid foundation for your Grails application.
+Spring Boot {SpringBootVersion} comes with new features, performance enhancements, and compatibility improvements, making it a solid foundation for your Grails application.
 
 #### 8. Breaking changes
 
 Grails 7 introduces several breaking changes that may require updates to your application.
 
-##### 8.1. Inheritance in GORM
-With the update to Groovy 4, there is an issue with extending domain classes. A workaround is to *_not_* annotate parent classes with `@Entity` or put them in the `grails-app/domain` folder. Use `src/main/groovy` instead.
+#### 8.1. Removed libraries/classes
+- The `grails-web-fileupload` library, including its sole class `ContentLengthAwareCommonsMultipartResolver`, has been removed. This change was necessitated by the removal of the superclass `CommonsMultipartResolver` in Spring 6. The `ContentLengthAwareCommonsMultipartResolver` was originally introduced to address a bug in Safari back in 2007, but it is likely no longer needed. Spring has transitioned away from `CommonsMultipartResolver` and now recommends using the built-in support for multipart uploads provided by servlet containers. For more information on handling file uploads in Spring Boot, please refer to the relevant sections of the https://docs.spring.io/spring-boot/how-to/spring-mvc.html#howto.spring-mvc.multipart-file-uploads[Spring Boot documentation] and the https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x#web-applications-1[Spring Framework 6 upgrade guide].
+- `org.grails.spring.beans.factory.OptimizedAutowireCapableBeanFactory` was deprecated and is now removed.
 
-#### 8.2. Removed libraries/classes
+#### 8.2. Micronaut is now supported via Spring Boot Starter
 - The `grails-web-fileupload` library, including its sole class `ContentLengthAwareCommonsMultipartResolver`, has been removed. This change was necessitated by the removal of the superclass `CommonsMultipartResolver` in Spring 6. The `ContentLengthAwareCommonsMultipartResolver` was originally introduced to address a bug in Safari back in 2007, but it is likely no longer needed. Spring has transitioned away from `CommonsMultipartResolver` and now recommends using the built-in support for multipart uploads provided by servlet containers. For more information on handling file uploads in Spring Boot, please refer to the relevant sections of the https://docs.spring.io/spring-boot/how-to/spring-mvc.html#howto.spring-mvc.multipart-file-uploads[Spring Boot documentation] and the https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x#web-applications-1[Spring Framework 6 upgrade guide].
 - `org.grails.spring.beans.factory.OptimizedAutowireCapableBeanFactory` was deprecated and is now removed.

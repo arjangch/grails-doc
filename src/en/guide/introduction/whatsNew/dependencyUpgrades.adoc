@@ -1,12 +1,10 @@
 Grails {version} ships with the following dependency upgrades:
 
-* Groovy 3.0.21
-* Micronaut 3.10.4
-* Micronaut for Spring 4.5.1
-* GORM 8.1.2
-* Spring Framework 5.3.39
-* Spring Boot 2.7.18
-* Gradle 7.6.4
-* Spock 2.1-groovy-3.0
-* Grails Testing Support 3.2.1
+* Groovy 4.0.24
+* GORM 9.0.0-M1
+* Spring Framework 6.2.1
+* Spring Boot 3.4.0
+* Gradle 8.11.1
+* Spock 2.3-groovy-4.0
+* Grails Testing Support 4.0.0-M1
 

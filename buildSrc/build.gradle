@@ -6,11 +6,7 @@ repositories {
     maven { url = "https://repo.grails.org/grails/core" }
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
+compileJava.options.release = 17
 
 configurations {
     configureEach {

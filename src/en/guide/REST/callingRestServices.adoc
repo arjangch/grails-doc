@@ -1,11 +1,12 @@
 Calling Grails REST services - as well as third-party services - is very straightforward using the https://docs.micronaut.io/latest/guide/index.html#httpClient[Micronaut HTTP Client]. This HTTP client has both a low-level API and a higher level AOP-driven API, making it useful for both simple requests as well as building declarative, type-safe API layers.
 
-To use the Micronaut HTTP client you must have the `micronaut-http-client` dependency on your classpath. Add the following dependency to your `build.gradle` file.
+To use the Micronaut HTTP client you must have the `micronaut-http-client` and `micronaut-serde-jackson` dependencies on your classpath. Add the following dependency to your `build.gradle` file.
 
 .build.gradle
 [source,groovy]
 ----
-implementation 'io.micronaut:micronaut-http-client'
+implementation "io.micronaut:micronaut-http-client:4.6.6"
+implementation "io.micronaut.serde:micronaut-serde-jackson:2.11.0"
 ----
 
 ==== Low-level API

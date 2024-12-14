@@ -73,10 +73,10 @@ include::gettingStarted/testingAnApplication.adoc[]
 
 include::gettingStarted/deployingAnApplication.adoc[]
 
-[[supportedJavaEEContainers]]
-=== Supported Java EE Containers
+[[supportedJakartaEEContainers]]
+=== Supported Jakarta EE Containers
 
-include::gettingStarted/supportedJavaEEContainers.adoc[]
+include::gettingStarted/supportedJakartaEEContainers.adoc[]
 
 [[creatingArtefacts]]
 === Creating Artefacts

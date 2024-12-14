@@ -1,13 +1,9 @@
-This section covers all the new features introduced in Grails 6
+This section covers all the new features introduced in Grails 7
 
 === Overview
 
-Grails framework 6 updates Spring Boot to version 2.7. We recommend checking the following Spring technologies release notes for more information.
+Grails framework 7 updates Spring Boot to version 3.4. We recommend checking the following Spring technologies release notes for more information.
 
-* https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.7-Release-Notes[Spring Boot 2.7]
+* https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes[Spring Boot 3.4]
 
-The minimum Java version required to run Grails 6 has been updated to Java 11.
-
-=== Support for Micronaut Environments in `application.yml`
-
-The support has been introduced for Micronaut's Environments concept within the `application.yml` file. This feature allows developers to define environment-specific configurations seamlessly, aiding in smoother transitions between different operational environments like development, testing, and production.
+The minimum Java version required to run Grails 7 has been updated to Java 17.

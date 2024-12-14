@@ -72,7 +72,6 @@ Available Features
 
   Other
   grails-console (+)                  Starts the Grails console, which is an extended version of the regular Groovy console.
-  micronaut-inject-groovy (+)         micronaut-inject-groovy
 
   Packaging
   shade                               Adds the ability to build a Fat/Shaded JAR

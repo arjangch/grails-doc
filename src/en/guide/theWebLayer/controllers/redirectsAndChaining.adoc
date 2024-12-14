@@ -19,7 +19,7 @@ class OverviewController {
 }
 ----
 
-Internally the link:../ref/Controllers/redirect.html[redirect] method uses the {javaee}javax/servlet/http/HttpServletResponse.html[HttpServletResponse] object's `sendRedirect` method.
+Internally the link:../ref/Controllers/redirect.html[redirect] method uses the {jakartaee}jakarta/servlet/http/HttpServletResponse.html[HttpServletResponse] object's `sendRedirect` method.
 
 The `redirect` method expects one of:
 

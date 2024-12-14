@@ -1,4 +1,4 @@
-Like http://www.oracle.com/technetwork/java/javaee/jsp/index.html[Java Server Pages] (JSP), GSP supports the concept of custom tag libraries. Unlike JSP, Grails' tag library mechanism is simple, elegant and completely reloadable at runtime.
+Like https://jakarta.ee/specifications/pages/3.1/[Java Server Pages] (JSP), GSP supports the concept of custom tag libraries. Unlike JSP, Grails' tag library mechanism is simple, elegant and completely reloadable at runtime.
 
 Quite simply, to create a tag library create a Groovy class that ends with the convention `TagLib` and place it within the `grails-app/taglib` directory:
 

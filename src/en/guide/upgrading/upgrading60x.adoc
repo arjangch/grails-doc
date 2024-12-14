@@ -2,7 +2,7 @@
 :GradleVersion: 8.11.1
 :GrailsVersion: 7.0.0-M1
 :GrailsGradlePluginVersion: 7.0.0-M2
-:SpringVersion: 6.2.1
+:SpringVersion: 6.2.0
 :SpringBootVersion: 3.4.0
 
 

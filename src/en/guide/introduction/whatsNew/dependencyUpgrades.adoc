@@ -2,7 +2,7 @@ Grails {version} ships with the following dependency upgrades:
 
 * Groovy 4.0.24
 * GORM 9.0.0-M1
-* Spring Framework 6.2.1
+* Spring Framework 6.2.0
 * Spring Boot 3.4.0
 * Gradle 8.11.1
 * Spock 2.3-groovy-4.0

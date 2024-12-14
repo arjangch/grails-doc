@@ -7,14 +7,14 @@ The `schema-export` command uses Hibernate's SchemaExport tool to generate Data 
 == Examples
 
 [source,groovy,subs="attributes+"]
-.buildSrc/build.gradle
+build.gradle
 ----
 repositories {
     mavenCentral()
     maven { url = "https://repo.grails.org/grails/core/" }
 }
 dependencies {
-    implementation("org.grails.plugins:hibernate5:{gormVersion}")
+    classpath "org.grails.plugins:hibernate5:{gormVersion}"
 }
 ----
 

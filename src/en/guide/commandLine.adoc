@@ -1,4 +1,110 @@
-The Grails New Command-Line Interface (CLI) has undergone significant changes compared to its previous versions, primarily focusing on code generation. One notable alteration is the removal of APIs for invoking Gradle for tasks related to building using Gradle Tooling APIs. This shift in responsibility aligns with the framework's evolution and its integration with the Gradle build system.
+Grails 3.0's command line system differs greatly from previous versions of Grails and features APIs for invoking Gradle for build related tasks, as well as performing code generation.
+
+When you type:
+
+[source,groovy]
+----
+grails <<command name>>
+----
+
+Grails searches the http://bintray.com/grails/profiles[profile repository] based on the profile of the current application. If the profile is for a web application then commands are read from the web profile and the base profile which it inherits from.
+
+Since command behavior is profile specific the web profile may provide different behavior for the `run-app` command then say a profile for running batch applications.
+
+When you type the following command:
+
+[source,groovy]
+----
+grails run-app
+----
+
+It will first search the application, and then the profile for commands:
+
+* `PROJECT_HOME/src/main/scripts/run-app.groovy`
+* `<<profile>>/commands/run-app.groovy`
+* `<<profile>>/commands/run-app.yml`
+
+To get a list of all commands and some help about the available commands type:
+
+[source,bash]
+----
+grails help
+----
+
+which outputs usage instructions and the list of commands Grails is aware of:
+
+[source,bash]
+----
+grails <<environment>>* <<target>> <<arguments>>*'
+
+| Examples:
+$ grails dev run-app
+$ grails create-app books
+
+| Available Commands (type grails help 'command-name' for more info):
+| Command Name                          Command Description
+----------------------------------------------------------------------------------------------------
+clean                                   Cleans a Grails application's compiled sources
+compile                                 Compiles a Grails application
+...
+----
+
+NOTE: Refer to the Command Line reference in the Quick Reference menu of the reference guide for more information about individual commands
+
+=== Arguments
+
+The `grails` command is a front to a `gradle` invocation, because of this there can be unexpected side-effects.
+For example, when executing `grails -Dapp.foo=bar run-app` the `app.foo` system property won't be available to your application. This is because `bootRun` in your `build.gradle` configures the system properties.
+To make this work you can simply append all `System.properties` to `bootRun` in `build.gradle` like:
+
+[source,groovy]
+----
+bootRun{
+    systemProperties System.properties // Please note not to use '=', because this will override all configured systemProperties. This will append them.
+}
+----
+
+Or if you only want to pass through a limited set, you can prefix your system properties using an arbitrary prefix and configure `bootRun` like:
+
+[source,groovy]
+----
+bootRun{
+    bootRun {
+        systemProperties System.properties.inject([:]){acc,item-> item.key.startsWith('boot.')?acc << [(item.key.substring('boot.'.length())):item.value]:acc }
+    }
+}
+----
+
+In this example only system properties starting with `boot.` are passed through.
+
+Application and JVM arguments should be specified in `bootRun` as well.
+
+[source,groovy]
+----
+bootRun{
+    bootRun {
+        jvmArgs('-Dspring.output.ansi.enabled=always')
+        args('--app.foo=bar','--app.bar=foo') // Override the `app.foo` and `app.bar` config options (`grailsApplication.config`)
+    }
+}
+----
+
+
+=== non-interactive mode
+
+
+When you run a script manually and it prompts you for information, you can answer the questions and continue running the script. But when you run a script as part of an automated process, for example a continuous integration build server, there's no way to "answer" the questions. So you can pass the `\--non-interactive` switch to the script command to tell Grails to accept the default answer for any questions, for example whether to install a missing plugin.
+
+For example:
+
+[source,groovy]
+----
+grails war --non-interactive
+----
+
+
+
+The Grails Forge New Command-Line Interface (CLI) has undergone significant changes compared to its previous versions, primarily focusing on code generation. One notable alteration is the removal of APIs for invoking Gradle for tasks related to building using Gradle Tooling APIs. This shift in responsibility aligns with the framework's evolution and its integration with the Gradle build system.
 
 === Accessing the Grails CLI
 

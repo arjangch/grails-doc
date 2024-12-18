@@ -1,4 +1,40 @@
-== Grails `--help` Syntax
+
+== help
+
+
+
+=== Purpose
+
+
+Displays Grails command line help
+
+
+=== Examples
+
+
+[source,groovy]
+----
+grails help
+grails help run-app
+----
+
+
+=== Description
+
+
+Usage:
+[source,groovy]
+----
+grails help [command_name]*
+----
+
+Arguments:
+
+* `command_name` - The command name to display help for
+
+
+
+== Grails Forge `--help` Syntax
 
 === Purpose
 

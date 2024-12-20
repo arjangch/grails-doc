@@ -101,9 +101,21 @@ Use "Import->General->Existing Projects into Workspace" to import all projects t
 
 
 To enable debugging, run:
+
+[source,groovy]
+----
+grails run-app --debug-jvm
+----
+
 [source,groovy]
 ----
 ./gradlew bootRun --debug-jvm
 ----
 
+By default Grails forks a JVM to run the application in. The `-debug-jvm` argument causes the debugger to be associated with the forked JVM.  In order to instead attach the debugger to the build system which is going to fork the JVM use the `-debug` option:
+
+[source,groovy]
+----
+grails -debug run-app
+----
 By default Grails forks a JVM to run the application in. The `-debug-jvm` argument causes the debugger to be associated with the forked JVM.

@@ -18,29 +18,9 @@ This document provides information about the dependencies mentioned in the Grail
 | directory-watcher
 | {io_methvin_directory_watcher_version}
 
-| io.micronaut
-| micronaut-aop, micronaut-bom, micronaut-buffer-netty, micronaut-core, micronaut-http, micronaut-http-client, micronaut-http-netty, micronaut-inject, micronaut-inject-groovy, micronaut-inject-java, micronaut-runtime
-| {io_micronaut_micronaut_core_version}
-
-| io.micronaut.cache
-| micronaut-cache-core
-| {io_micronaut_cache_micronaut_cache_core_version}
-
-| io.micronaut.groovy
-| micronaut-runtime-groovy
-| {io_micronaut_groovy_micronaut_runtime_groovy_version}
-
-| io.micronaut.spring
-| micronaut-spring, micronaut-spring-annotation, micronaut-spring-boot, micronaut-spring-boot-annotation, micronaut-spring-context, micronaut-spring-web, micronaut-spring-web-annotation
-| {io_micronaut_spring_micronaut_spring_spring_version}
-
 | jakarta.annotation
 | jakarta.annotation-api
 | {jakarta_annotation_jakarta_annotation_api_version}
-
-| javax.annotation
-| javax.annotation-api
-| {javax_annotation_javax_annotation_api_version}
 
 | org.codehaus.groovy
 | groovy, groovy-ant, groovy-console, groovy-dateutil, groovy-json, groovy-macro, groovy-nio, groovy-sql, groovy-swing, groovy-templates, groovy-xml
@@ -61,10 +41,6 @@ This document provides information about the dependencies mentioned in the Grail
 | org.grails
 | grails-gorm-testing-support, grails-testing-support, grails-web-testing-support
 | {org_grails_grails_testing_support_version}
-
-| org.grails
-| scaffolding-core
-| {org_grails_scaffolding_core_version}
 
 | org.grails
 | views-json-testing-support

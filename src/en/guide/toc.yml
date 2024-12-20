@@ -1,7 +1,7 @@
 introduction:
   title: Introduction
   whatsNew:
-    title: What's new in Grails 6?
+    title: What's new in Grails 7?
     dependencyUpgrades: Updated Dependencies
 gettingStarted:
   title: Getting Started
@@ -15,7 +15,7 @@ gettingStarted:
   runningAndDebuggingAnApplication: Running and Debugging an Application
   testingAnApplication: Testing an Application
   deployingAnApplication: Deploying an Application
-  supportedJavaEEContainers: Supported Java EE Containers
+  supportedJakartaEEContainers: Supported Jakarta EE Containers
   creatingArtefacts: Creating Artefacts
   generatingAnApplication: Generating an Application
 upgrading:

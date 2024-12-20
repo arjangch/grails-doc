@@ -163,7 +163,6 @@ features:
   - grails-web-testing-support
   - h2
   - logback
-  - micronaut-inject-groovy
   - readme
   - scaffolding
   - spock

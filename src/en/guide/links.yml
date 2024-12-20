@@ -17,7 +17,7 @@ conventionOverConfiguration: 2.7 Convention over Configuration
 runningAndDebuggingAnApplication: 2.8 Running and Debugging an Application
 testingAnApplication: 2.9 Testing an Application
 deployingAnApplication: 2.10 Deploying an Application
-supportedJavaEEContainers: 2.11 Supported Java EE Containers
+supportedJakartaEEContainers: 2.11 Supported Jakarta EE Containers
 generatingAnApplication: 2.12 Generating an Application
 creatingArtefacts: 2.13 Creating Artefacts
 conf: 3. Configuration

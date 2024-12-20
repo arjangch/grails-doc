@@ -48,7 +48,7 @@ Creates an application
                           spring-boot-starter-jetty, springloaded, spring-boot-starter-tomcat,
                           micronaut-http-client, cache-ehcache, hibernate-validator, postgres,
                           mysql, cache, database-migration, grails-gsp, hamcrest, gorm-mongodb,
-                          assertj, mockito, spring-boot-starter-undertow, micronaut-inject-groovy,
+                          assertj, mockito, spring-boot-starter-undertow,
                           github-workflow-java-ci, jrebel, testcontainers, sqlserver,
                           grails-console, views-markup, asset-pipeline-grails, views-json,
                           gorm-neo4j, asciidoctor, embedded-mongodb, grails-web-console,
@@ -123,7 +123,6 @@ Available Features
   Other
   geb (+)                             This plugins configure Geb for Grails framework to write automation tests.
   grails-console (+)                  Starts the Grails console, which is an extended version of the regular Groovy console.
-  micronaut-inject-groovy (+)         micronaut-inject-groovy
   scaffolding (+)                     The Grails® framework Scaffolding plugin replicates much of the functionality from Grails 2, but uses the fields plugin instead.
 
   Packaging

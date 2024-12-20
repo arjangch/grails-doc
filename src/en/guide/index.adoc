@@ -9,7 +9,7 @@ Puneet Behl, Graeme Rocher, Peter Ledbrook, Marc Palmer, Jeff Brown, Luke Daley,
 include::introduction.adoc[]
 
 [[whatsNew]]
-=== What's new in Grails 6?
+=== What's new in Grails 7?
 
 include::introduction/whatsNew.adoc[]
 
@@ -73,10 +73,10 @@ include::gettingStarted/testingAnApplication.adoc[]
 
 include::gettingStarted/deployingAnApplication.adoc[]
 
-[[supportedJavaEEContainers]]
-=== Supported Java EE Containers
+[[supportedJakartaEEContainers]]
+=== Supported Jakarta EE Containers
 
-include::gettingStarted/supportedJavaEEContainers.adoc[]
+include::gettingStarted/supportedJakartaEEContainers.adoc[]
 
 [[creatingArtefacts]]
 === Creating Artefacts
@@ -802,7 +802,7 @@ include::async/asyncGorm.adoc[]
 include::async/asyncRequests.adoc[]
 
 [[asyncServletApi]]
-=== Servlet 3.0 Async
+=== Servlet 6.0.0 Async
 
 include::async/asyncServletApi.adoc[]
 

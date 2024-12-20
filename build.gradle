@@ -1,6 +1,6 @@
 plugins {
     id 'base'
-    id 'org.asciidoctor.jvm.convert' version '4.0.0-alpha.1'
+    id 'org.asciidoctor.jvm.convert' version '4.0.3'
     id 'org.grails.grails-gdoc-to-asciidoc'
     id 'groovy'
 }
@@ -8,6 +8,8 @@ plugins {
 repositories {
     maven { url = "https://repo.grails.org/grails/core" }
 }
+
+compileJava.options.release = 17
 
 import org.apache.tools.ant.taskdefs.condition.Os
 
@@ -39,10 +41,10 @@ configurations {
 
 gdoc2asciidoc {
     apiLinks = ['org.hibernate'             : 'https://docs.jboss.org/hibernate/orm/current/javadocs/',
-                'org.springframework.boot'  : 'https://docs.spring.io/spring-boot/docs/2.5.2/api',
-                'org.springframework'       : 'https://docs.spring.io/spring/docs/5.3.8/javadoc-api/',
-                'javax.servlet'             : 'https://docs.oracle.com/javaee/1.4/api/',
-                'java.'                     : 'https://docs.oracle.com/javase/6/docs/api/',
+                'org.springframework.boot'  : "https://docs.spring.io/spring-boot/docs/$springBootVersion/api",
+                'org.springframework'       : "https://docs.spring.io/spring/docs/$springVersion/javadoc-api/",
+                'jakarta.servlet'           : 'https://jakarta.ee/specifications/servlet/6.0/',
+                'java.'                     : 'https://docs.oracle.com/en/java/javase/17/docs/api/',
                 'groovy.'                   : 'https://docs.groovy-lang.org/docs/latest/html/api/',
                 'org.codehaus.groovy.grails': "https://docs.grails.org/$githubBranch/api",
                 'grails.orm.'               : 'https://gorm.grails.org/latest/api',
@@ -161,7 +163,7 @@ tasks.register('publishGuide', grails.doc.gradle.PublishGuide) {
         propertiesFiles = [new File(projectDir, "gradle.properties")]
         asciidoc = true
         properties = [
-                'javaee'             : "https://docs.oracle.com/javaee/7/api/",
+                'jakartaee'          : "https://jakarta.ee/specifications/platform/10/apidocs/",
                 'javase'             : "https://docs.oracle.com/en/java/javase/17/docs/api/",
                 'groovyapi'          : "https://docs.groovy-lang.org/${groovyVersion}/html/gapi/",
                 'springapi'          : "https://docs.spring.io/spring/docs/${springVersion}/javadoc-api/",
@@ -217,8 +219,4 @@ artifacts {
     archives dist
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
+compileJava.options.release = 17

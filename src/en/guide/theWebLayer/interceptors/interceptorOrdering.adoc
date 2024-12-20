@@ -27,11 +27,11 @@ int order = HIGHEST_PRECEDENCE + 50
 int order = LOWEST_PRECEDENCE - 50
 ----
 
-To find out the computed order of interceptors you can add a debug logger to `logback.groovy` as follows:
+To find out the computed order of interceptors you can add a debug logger to `logback-spring.xml` as follows:
 
-[source,groovy]
+[source,xml]
 ----
-logger 'grails.artefact.Interceptor', DEBUG, ['STDOUT'], false
+<logger name="grails.artefact.Interceptor" level="DEBUG" />
 ----
 
 You can override any interceptors default order by using bean override configuration in `grails-app/conf/application.yml`:

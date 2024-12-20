@@ -90,6 +90,15 @@ Adds Quartz job scheduling features
 
 ==== Plugin Configuration
 
+A Grails plugin can be configured in one of the following files:
+
+- `grails-app/conf/plugin.yml`
+- `grails-app/conf/plugin.groovy`
+
+These files are the equivalent of `application.yml` or `application.groovy` in a Grails application.
+
+==== Reading configuration properties
+
 Instead of directly accessing Grails configuration as `grailsApplication.config.mail.hostName`, use a Spring Boot configuration bean (or a POJO) annotated with {springbootapi}/org/springframework/boot/context/properties/ConfigurationProperties.html[ConfigurationProperties] annotation. Here is an example plugin configuration:
 
 _./src/main/groovy/example/MailPluginConfiguration.groovy_
@@ -274,9 +283,11 @@ Grails application running at http://localhost:8080 in environment: development
 Although the link:../ref/Command%20Line/create-plugin.html[create-plugin] command creates certain files for you so that the plugin can be run as a Grails application, not all of these files are included when packaging a plugin. The following is a list of artefacts created, but not included by link:../ref/Command%20Line/package-plugin.html[package-plugin]:
 
 * `grails-app/build.gradle` (although it is used to generate `dependencies.groovy`)
-* `grails-app/conf/application.yml` (renamed to plugin.yml)
-* `grails-app/conf/spring/resources.groovy`
+* `grails-app/conf/logback.xml`
 * `grails-app/conf/logback-spring.xml`
+* `grails-app/conf/application.yml`
+* `grails-app/conf/application.groovy`
+* `grails-app/conf/spring/resources.groovy`
 * Everything within `/src/test/\*\*`
 * SCM management files within `\*\*/.svn/\*\*` and `\*\*/CVS/\*\*`
 
@@ -612,9 +623,11 @@ Grails application running at http://localhost:8080 in environment: development
 Although the link:../ref/Command%20Line/create-plugin.html[create-plugin] command creates certain files for you so that the plugin can be run as a Grails application, not all of these files are included when packaging a plugin. The following is a list of artefacts created, but not included by link:../ref/Command%20Line/package-plugin.html[package-plugin]:
 
 * `grails-app/build.gradle` (although it is used to generate `dependencies.groovy`)
-* `grails-app/conf/application.yml` (renamed to plugin.yml)
-* `grails-app/conf/spring/resources.groovy`
+* `grails-app/conf/logback.xml`
 * `grails-app/conf/logback-spring.xml`
+* `grails-app/conf/application.yml`
+* `grails-app/conf/application.groovy`
+* `grails-app/conf/spring/resources.groovy`
 * Everything within `/src/test/\*\*`
 * SCM management files within `\*\*/.svn/\*\*` and `\*\*/CVS/\*\*`
 

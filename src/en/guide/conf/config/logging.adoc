@@ -1,5 +1,10 @@
 Since Grails 3.0, logging is handled by the http://logback.qos.ch[Logback logging framework] and can be configured with the `grails-app/conf/logback-spring.xml` file.
 
-NOTE: Since Grails 5.1.2 support for groovy configuration (`grails-app/conf/logback.groovy`) has been removed (by logback 1.2.9). It is possible to add back groovy configuration by adding the https://github.com/virtualdogbert/logback-groovy-config[logback-groovy-config] library to your project.
+- See the https://docs.spring.io/spring-boot/reference/features/logging.html[Spring Boot Logging] for all the available configuration options.
 
-For more information on configuring logging refer to the http://logback.qos.ch/manual/groovy.html[Logback documentation] on the subject.
+// To be re-included when a Grails 7 release of the plugin gets released
+// See: virtualdogbert/logback-groovy-config#15
+//
+// NOTE: Since Grails 5.1.2 support for groovy configuration (`grails-app/conf/logback.groovy`) has been removed (by logback 1.2.9). It is possible to add back groovy configuration by adding the https://github.com/virtualdogbert/logback-groovy-config[logback-groovy-config] library to your project.
+
+- For more information on configuring logging refer to the https://logback.qos.ch/documentation.html[Logback documentation] on the subject.

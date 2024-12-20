@@ -109,8 +109,10 @@ Note the usage of the `plugin` attribute, which contains the name of the plugin 
 
 By default Grails excludes the following files during the packaging process:
 
+* `grails-app/conf/logback.xml`
 * `grails-app/conf/logback-spring.xml`
-* `grails-app/conf/application.yml` (renamed to `plugin.yml`)
+* `grails-app/conf/application.yml`
+* `grails-app/conf/application.groovy`
 * `grails-app/conf/spring/resources.groovy`
 * Everything within `/src/test/\*\*`
 * SCM management files within `\*\*/.svn/\*\*` and `\*\*/CVS/\*\*`

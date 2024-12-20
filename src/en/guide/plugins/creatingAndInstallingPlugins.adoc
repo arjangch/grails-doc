@@ -95,15 +95,15 @@ A Grails plugin can be configured in one of the following files:
 - `grails-app/conf/plugin.yml`
 - `grails-app/conf/plugin.groovy`
 
-These files are the equivalent of `application.yml` or `application.groovy` in a Grails application.
+These files will be included in the plugin package while the `application.yml` file is used when the plugin is run as an application. See <<excludedArtefacts>>.
 
 ==== Reading configuration properties
 
 Instead of directly accessing Grails configuration as `grailsApplication.config.mail.hostName`, use a Spring Boot configuration bean (or a POJO) annotated with {springbootapi}/org/springframework/boot/context/properties/ConfigurationProperties.html[ConfigurationProperties] annotation. Here is an example plugin configuration:
 
-_./src/main/groovy/example/MailPluginConfiguration.groovy_
+./src/main/groovy/example/MailPluginConfiguration.groovy
 [source,groovy]
-```
+----
 package example
 
 import org.springframework.boot.context.properties.ConfigurationProperties
@@ -115,14 +115,13 @@ class MailPluginConfiguration {
     int port
     String from
 }
-
-```
+----
 
 You can inject the `MailPluginConfiguration` bean into your bean like any other bean.
 
-_./grails-app/services/example/MailService.groovy_
+./grails-app/services/example/MailService.groovy
 [source,groovy]
-```
+----
 package example
 
 class MailService {
@@ -134,7 +133,7 @@ class MailService {
     }
 
 }
-```
+----
 
 Please read the {springBootReference}/html/features.html#features.external-config[Spring Boot Externalized Configuration] section for more information.
 
@@ -277,6 +276,7 @@ Grails application running at http://localhost:8080 in environment: development
 ----
 
 
+[[excludedArtefacts]]
 ==== Notes on excluded Artefacts
 
 
@@ -441,9 +441,9 @@ Adds Quartz job scheduling features
 
 Instead of directly accessing Grails configuration as `grailsApplication.config.getProperty('mail.hostName', String)`, use a Spring Boot configuration bean (or a POJO) annotated with {springbootapi}/org/springframework/boot/context/properties/ConfigurationProperties.html[ConfigurationProperties] annotation. Here is an example plugin configuration:
 
-_./src/main/groovy/example/MailPluginConfiguration.groovy_
+./src/main/groovy/example/MailPluginConfiguration.groovy
 [source,groovy]
-```
+----
 package example
 
 import org.springframework.boot.context.properties.ConfigurationProperties
@@ -455,14 +455,13 @@ class MailPluginConfiguration {
     int port
     String from
 }
-
-```
+----
 
 You can inject the `MailPluginConfiguration` bean into your bean like any other bean.
 
-_./grails-app/services/example/MailService.groovy_
+./grails-app/services/example/MailService.groovy
 [source,groovy]
-```
+----
 package example
 
 class MailService {
@@ -474,7 +473,7 @@ class MailService {
     }
 
 }
-```
+----
 
 Please read the {springBootReference}/html/features.html#features.external-config[Spring Boot Externalized Configuration] section for more information.
 

@@ -134,6 +134,11 @@ server:
 
 With this configuration, the application will be available at:
 
+Alternatively, you can also set the context path via the command line:
+[source,bash]
+----
+grails> run-app -Dgrails.server.servlet.context-path=/helloworld
+----
 http://localhost:8080/myapp/
 
 Alternatively, you can set the context path from the command line when using Gradle to run a Grails application. Here's how you can do it:

@@ -55,8 +55,23 @@ conf:
 commandLine:
   title: The Command Line
   interactiveMode: Interactive Mode
+  creatingCustomScripts: Creating Custom Scripts
   creatingCustomCommands: Creating Custom Commands
   creatingProject: Creating a Grails Project
+  reusingGrailsScripts: Re-using Grails scripts
+  gradleBuild:
+    title: Building with Gradle
+    gradleDependencies: Defining Dependencies with Gradle
+    gradleTasks: Working with Gradle Tasks
+    gradlePlugins: Grails plugins for Gradle
+profiles:
+  title: Application Profiles
+  creatingProfiles: Creating Profiles
+  profileInheritance: Profile Inheritance
+  publishingProfiles: Publishing Profiles
+  profileStructure: Understanding Profiles
+  profileCommands: Creating Profile Commands
+  profileFeatures: Creating Profile Features
 GORM:
   title: Object Relational Mapping (GORM)
   quickStartGuide:
@@ -124,6 +139,8 @@ REST:
     generatingRestControllers: Generating a REST controller using scaffolding
   callingRestServices: Calling REST Services with HttpClient
   restProfile: The REST Profile
+  angularJsProfile: The AngularJS Profile
+  angularProfile: The Angular Profile
   jsonViews:
     title: JSON Views
     jsonViewsSetup: Getting Started

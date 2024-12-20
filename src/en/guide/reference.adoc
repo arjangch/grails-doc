@@ -4,14 +4,37 @@
 [[ref-command-line]]
 === Command Line
 
+[[ref-command-line-bug-report]]
+==== bug-report
+
+include::ref/Command Line/bug-report.adoc[]
+
+[[ref-command-line-clean]]
+==== clean
+
+include::ref/Command Line/clean.adoc[]
+
+[[ref-command-line-compile]]
+==== compile
+
+include::ref/Command Line/compile.adoc[]
+
+[[ref-command-line-console]]
+==== console
+
+include::ref/Command Line/console.adoc[]
+
 [[ref-command-line-create-app]]
 ==== create-app
 
 include::ref/Command Line/create-app.adoc[]
 
+[[ref-command-line-create-command]]
+==== create-command
 [[ref-command-line-assemble]]
 ==== assemble
 
+include::ref/Command Line/create-command.adoc[]
 include::ref/Command Line/assemble.adoc[]
 
 [[ref-command-line-create-controller]]
@@ -24,14 +47,42 @@ include::ref/Command Line/create-controller.adoc[]
 
 include::ref/Command Line/create-domain-class.adoc[]
 
+[[ref-command-line-create-functional-test]]
+==== create-functional-test
+
+include::ref/Command Line/create-functional-test.adoc[]
+
+[[ref-command-line-create-hibernate-cfg-xml]]
+==== create-hibernate-cfg-xml
+
+include::ref/Command Line/create-hibernate-cfg-xml.adoc[]
+
+[[ref-command-line-create-integration-test]]
+==== create-integration-test
+
+include::ref/Command Line/create-integration-test.adoc[]
+
+[[ref-command-line-create-interceptor]]
+==== create-interceptor
+
+include::ref/Command Line/create-interceptor.adoc[]
+
 [[ref-command-line-create-plugin]]
 ==== create-plugin
 
 include::ref/Command Line/create-plugin.adoc[]
 
+[[ref-command-line-create-profile]]
+==== create-profile
 [[ref-command-line-create-rest-api]]
 ==== create-rest-api
 
+include::ref/Command Line/create-profile.adoc[]
+
+[[ref-command-line-create-script]]
+==== create-script
+
+include::ref/Command Line/create-script.adoc[]
 include::ref/Command Line/create-rest-api.adoc[]
 
 [[ref-command-line-create-service]]
@@ -44,9 +95,22 @@ include::ref/Command Line/create-service.adoc[]
 
 include::ref/Command Line/create-taglib.adoc[]
 
+[[ref-command-line-create-unit-test]]
+==== create-unit-test
+
+include::ref/Command Line/create-unit-test.adoc[]
+
+[[ref-command-line-dependency-report]]
+==== dependency-report
+
+include::ref/Command Line/dependency-report.adoc[]
 [[ref-command-line-create-web-plugin]]
 ==== create-web-plugin
 
+[[ref-command-line-docs]]
+==== docs
+
+include::ref/Command Line/docs.adoc[]
 include::ref/Command Line/create-web-plugin.adoc[]
 
 [[ref-command-line-generate-all]]
@@ -75,19 +139,74 @@ include::ref/Command Line/help.adoc[]
 include::ref/Command Line/install-templates.adoc[]
 
 [[ref-command-line-list-plugins]]
+==== list-plugins
+
+include::ref/Command Line/list-plugins.adoc[]
+
+[[ref-command-line-list-profiles]]
+==== list-profiles
+
+include::ref/Command Line/list-profiles.adoc[]
+
+[[ref-command-line-package-plugin]]
+==== package-plugin
+
+include::ref/Command Line/package-plugin.adoc[]
+
+[[ref-command-line-package]]
+==== package
+
+include::ref/Command Line/package.adoc[]
+
+[[ref-command-line-plugin-info]]
+==== plugin-info
+
+include::ref/Command Line/plugin-info.adoc[]
+
+[[ref-command-line-profile-info]]
+==== profile-info
 ==== list-features
 
+include::ref/Command Line/profile-info.adoc[]
 include::ref/Command Line/list-features.adoc[]
 
+[[ref-command-line-run-app]]
+==== run-app
 [[ref-command-line-bootRun]]
 ==== bootRun
 
+include::ref/Command Line/run-app.adoc[]
 include::ref/Command Line/bootRun.adoc[]
 
 [[ref-command-line-schema-export]]
 ==== schema-export
 
 include::ref/Command Line/schema-export.adoc[]
+
+[[ref-command-line-shell]]
+==== shell
+
+include::ref/Command Line/shell.adoc[]
+
+[[ref-command-line-stats]]
+==== stats
+
+include::ref/Command Line/stats.adoc[]
+
+[[ref-command-line-stop-app]]
+==== stop-app
+
+include::ref/Command Line/stop-app.adoc[]
+
+[[ref-command-line-test-app]]
+==== test-app
+
+include::ref/Command Line/test-app.adoc[]
+
+[[ref-command-line-war]]
+==== war
+
+include::ref/Command Line/war.adoc[]
 
 [[ref-constraints]]
 === Constraints

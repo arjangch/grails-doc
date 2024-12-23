@@ -7,4 +7,5 @@ Grails {version} ships with the following dependency upgrades:
 * Gradle 8.11.1
 * Spock 2.3-groovy-4.0
 * Grails Testing Support 4.0.0-M2
+* Grails Gradle Plugin 7.0.0-M3
 

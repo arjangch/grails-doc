@@ -95,7 +95,7 @@ A Grails plugin can be configured in one of the following files:
 - `grails-app/conf/plugin.yml`
 - `grails-app/conf/plugin.groovy`
 
-These files will be included in the plugin package while the `application.yml` file is used when the plugin is run as an application. See <<excludedArtefacts>>.
+These files will be included in the plugin package while the `application.*` files are only used internally when developing the plugin. See <<excludedArtefacts>>.
 
 ==== Reading configuration properties
 

@@ -27,7 +27,7 @@ int order = HIGHEST_PRECEDENCE + 50
 int order = LOWEST_PRECEDENCE - 50
 ----
 
-To find out the computed order of interceptors you can add a debug logger to `grails-app/conf/logback-spring.xml` as follows:
+To find out the computed order of interceptors you can add a debug logger to `logback-spring.xml` as follows:
 
 [source,xml]
 ----

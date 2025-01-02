@@ -7,5 +7,5 @@ Logging is handled by http://logback.qos.ch[Logback] and can be configured with 
 
 NOTE: The filename `logback.xml` still works but `logback-spring.xml` is now recommended
 
-More information can be found on the official https://logback.qos.ch/documentation.html[Logback documentation].
+More information can be found in the official https://logback.qos.ch/documentation.html[Logback documentation].
 

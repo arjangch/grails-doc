@@ -90,11 +90,20 @@ Adds Quartz job scheduling features
 
 ==== Plugin Configuration
 
+A Grails plugin can be configured in one of the following files:
+
+- `grails-app/conf/plugin.yml`
+- `grails-app/conf/plugin.groovy`
+
+These files will be included in the plugin package while the `application.*` files are only used internally when developing the plugin. See <<excludedArtefacts>>.
+
+==== Reading configuration properties
+
 Instead of directly accessing Grails configuration as `grailsApplication.config.mail.hostName`, use a Spring Boot configuration bean (or a POJO) annotated with {springbootapi}/org/springframework/boot/context/properties/ConfigurationProperties.html[ConfigurationProperties] annotation. Here is an example plugin configuration:
 
-_./src/main/groovy/example/MailPluginConfiguration.groovy_
+./src/main/groovy/example/MailPluginConfiguration.groovy
 [source,groovy]
-```
+----
 package example
 
 import org.springframework.boot.context.properties.ConfigurationProperties
@@ -106,14 +115,13 @@ class MailPluginConfiguration {
     int port
     String from
 }
-
-```
+----
 
 You can inject the `MailPluginConfiguration` bean into your bean like any other bean.
 
-_./grails-app/services/example/MailService.groovy_
+./grails-app/services/example/MailService.groovy
 [source,groovy]
-```
+----
 package example
 
 class MailService {
@@ -125,7 +133,7 @@ class MailService {
     }
 
 }
-```
+----
 
 Please read the {springBootReference}/html/features.html#features.external-config[Spring Boot Externalized Configuration] section for more information.
 
@@ -268,15 +276,18 @@ Grails application running at http://localhost:8080 in environment: development
 ----
 
 
+[[excludedArtefacts]]
 ==== Notes on excluded Artefacts
 
 
 Although the link:../ref/Command%20Line/create-plugin.html[create-plugin] command creates certain files for you so that the plugin can be run as a Grails application, not all of these files are included when packaging a plugin. The following is a list of artefacts created, but not included by link:../ref/Command%20Line/package-plugin.html[package-plugin]:
 
 * `grails-app/build.gradle` (although it is used to generate `dependencies.groovy`)
-* `grails-app/conf/application.yml` (renamed to plugin.yml)
+* `grails-app/conf/logback.xml`
+* `grails-app/conf/logback-spring.xml`
+* `grails-app/conf/application.yml`
+* `grails-app/conf/application.groovy`
 * `grails-app/conf/spring/resources.groovy`
-* `grails-app/conf/logback.groovy`
 * Everything within `/src/test/\*\*`
 * SCM management files within `\*\*/.svn/\*\*` and `\*\*/CVS/\*\*`
 
@@ -430,9 +441,9 @@ Adds Quartz job scheduling features
 
 Instead of directly accessing Grails configuration as `grailsApplication.config.getProperty('mail.hostName', String)`, use a Spring Boot configuration bean (or a POJO) annotated with {springbootapi}/org/springframework/boot/context/properties/ConfigurationProperties.html[ConfigurationProperties] annotation. Here is an example plugin configuration:
 
-_./src/main/groovy/example/MailPluginConfiguration.groovy_
+./src/main/groovy/example/MailPluginConfiguration.groovy
 [source,groovy]
-```
+----
 package example
 
 import org.springframework.boot.context.properties.ConfigurationProperties
@@ -444,14 +455,13 @@ class MailPluginConfiguration {
     int port
     String from
 }
-
-```
+----
 
 You can inject the `MailPluginConfiguration` bean into your bean like any other bean.
 
-_./grails-app/services/example/MailService.groovy_
+./grails-app/services/example/MailService.groovy
 [source,groovy]
-```
+----
 package example
 
 class MailService {
@@ -463,7 +473,7 @@ class MailService {
     }
 
 }
-```
+----
 
 Please read the {springBootReference}/html/features.html#features.external-config[Spring Boot Externalized Configuration] section for more information.
 
@@ -612,9 +622,11 @@ Grails application running at http://localhost:8080 in environment: development
 Although the link:../ref/Command%20Line/create-plugin.html[create-plugin] command creates certain files for you so that the plugin can be run as a Grails application, not all of these files are included when packaging a plugin. The following is a list of artefacts created, but not included by link:../ref/Command%20Line/package-plugin.html[package-plugin]:
 
 * `grails-app/build.gradle` (although it is used to generate `dependencies.groovy`)
-* `grails-app/conf/application.yml` (renamed to plugin.yml)
+* `grails-app/conf/logback.xml`
+* `grails-app/conf/logback-spring.xml`
+* `grails-app/conf/application.yml`
+* `grails-app/conf/application.groovy`
 * `grails-app/conf/spring/resources.groovy`
-* `grails-app/conf/logback.groovy`
 * Everything within `/src/test/\*\*`
 * SCM management files within `\*\*/.svn/\*\*` and `\*\*/CVS/\*\*`
 

@@ -129,7 +129,7 @@ traits:
 REST:
   title: REST
   domainResources: Domain classes as REST resources
-  urlMappings: Mapping to REST resources
+  restUrlMappings: Mapping to REST resources
   linkingToResources: Linking to REST resources from GSP pages
   versioningResources: Versioning REST resources
   restfulControllers:

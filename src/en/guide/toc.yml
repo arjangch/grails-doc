@@ -162,10 +162,9 @@ REST:
   RSSAndAtom: RSS and Atom
 async:
   title: Asynchronous Programming
-  asyncIntroduction: Introduction
   asyncPromises: Promises
-  asyncEvents:
-    asyncTitle: Events
+  events:
+    title: Events
     asyncNotifying: Event Publishing
     asyncConsuming: Subscribing to Events
     asyncAnnotations: Reactor Spring Annotations
@@ -173,8 +172,8 @@ async:
     asyncSpringEvents: Events from Spring
     asyncConfigure: Configure the Default Event Bus
   asyncGorm: Asynchronous GORM
-  asyncRxjava:
-    asyncTitle: RxJava Support
+  rxjava:
+    title: RxJava Support
     asyncServerSentEvents: Server Sent Events
     asyncRxGorm: RxGORM
   asyncRequests: Asynchronous Request Handling

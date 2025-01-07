@@ -6,7 +6,13 @@ To subscribe for an event just define a `Subscriber` that receives the event typ
 ----
 import grails.events.annotation.*
 ...
-include::{sourcedir}/grails-async/examples/pubsub-demo/src/main/groovy/pubsub/demo/BookSubscriber.groovy[tags=gorm, indent=0]
+    Collection<PreInsertEvent> insertEvents = new ConcurrentLinkedDeque<>()
+
+    @Subscriber
+    @SuppressWarnings('unused')
+    void beforeInsert(PreInsertEvent event) {
+        insertEvents.add(event)
+    }
 ----
 
 NOTE: These events are triggered asynchronously, and so cannot cancel or manipulate the persistence operations.

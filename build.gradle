@@ -168,8 +168,6 @@ tasks.register('publishGuide', grails.doc.gradle.PublishGuide) {
                 'groovyapi'          : "https://docs.groovy-lang.org/${groovyVersion}/html/gapi/",
                 'springapi'          : "https://docs.spring.io/spring/docs/${springVersion}/javadoc-api/",
                 'springdocs'         : "https://docs.spring.io/spring/docs/${springVersion}/",
-                'asyncdocs'          : "https://async.grails.org/latest",
-                'asyncApiDocs'       : "https://async.grails.org/latest/api/",
                 'gspdocs'            : "https://gsp.grails.org/${gspVersion}",
                 'gspApiDocs'         : "https://gsp.grails.org/${gspVersion}/api/",
                 'gormApiDocs'        : "https://gorm.grails.org/${gormVersion}/api/",

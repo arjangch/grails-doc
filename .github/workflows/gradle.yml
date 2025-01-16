@@ -55,5 +55,5 @@ jobs:
               startsWith(steps.extract_branch.outputs.value, '3.3') ||
               startsWith(steps.extract_branch.outputs.value, '4.1') ||
               startsWith(steps.extract_branch.outputs.value, '5.3') || 
-              startsWith(steps.extract_branch.outputs.value, '7.0')
+              startsWith(steps.extract_branch.outputs.value, '6.2')
             }}

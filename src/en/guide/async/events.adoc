@@ -38,4 +38,8 @@ The following table summarizes async framework support and the necessary depende
 |`grails-events-rxjava2`
 |`org.grails.events.rxjava2.RxEventBus`
 
+|RxJava 3.x
+|`grails-events-rxjava3`
+|`org.grails.events.rxjava3.RxEventBus`
+
 |===

@@ -200,7 +200,23 @@ staticTypeCheckingAndCompilation:
   grailsTypeChecked: The GrailsTypeChecked Annotation
 testing:
   title: Testing
-  unitTesting: Unit Testing
+  generatingTests: Generating Tests
+  runningTests:
+    title: Running Tests
+    withGrailsCli: With Grails CLI
+    withGradle: With Gradle
+  unitTesting:
+    title: Unit Testing
+    installation: Installation
+    upgradingMixin: Upgrading From The Mixin Framework
+    unitTestingControllers: Unit Testing Controllers
+    unitTestingDomainClasses: Unit Testing Domain Classes
+    unitTestingServices: Unit Testing Services
+    unitTestingTagLibraries: Unit Testing Tag Libraries
+    unitTestingInterceptors: Unit Testing Interceptors
+    unitTestingUrlMappings: Unit Testing Url Mappings
+    annotations: Annotations
+    usefulProperties: Useful Properties
   integrationTesting: Integration Testing
   functionalTesting: Functional Testing
 i18n:

@@ -1,7 +1,6 @@
 plugins {
     id 'base'
     id 'org.asciidoctor.jvm.convert' version '4.0.3'
-    id 'org.grails.grails-gdoc-to-asciidoc'
     id 'groovy'
 }
 
@@ -16,7 +15,8 @@ import org.apache.tools.ant.taskdefs.condition.Os
 version = project.findProperty("grails.version")
 archivesBaseName = "grails-docs"
 
-ext.checkOutDir = project.layout.buildDirectory.dir('checkout').get().asFile.absolutePath
+ext.grailsCheckOutDir = project.layout.buildDirectory.dir('grails-core/checkout').get().asFile.absolutePath
+ext.grailsTestsCheckOutDir = project.layout.buildDirectory.dir('grails-functional-tests/checkout').get().asFile.absolutePath
 ext.outputDir = layout.buildDirectory.file("docs").get().asFile.absolutePath
 ext.githubSlug = "grails/grails-doc"
 ext.githubBranch = project.findProperty("githubBranch") ?: "7.0.x"
@@ -24,36 +24,15 @@ ext.guidePage = "/docs/guide/single.html"
 ext.indexPage = "/docs/index.html"
 
 ext.explicitGrailsHome = System.getProperty("grails.home") ?: project.findProperty('grails.home')
-ext.grailsHome = explicitGrailsHome ? file(explicitGrailsHome).absolutePath : "${checkOutDir}/grails-src"
+ext.grailsHome = explicitGrailsHome ? file(explicitGrailsHome).absolutePath : "${grailsCheckOutDir}/grails-src"
+ext.explicitGrailsFunctionalTestsHome = System.getProperty("grails.functional.test.home") ?: project.findProperty('grails.functional.test.home')
+ext.grailsTestsHome = explicitGrailsFunctionalTestsHome ? file(explicitGrailsFunctionalTestsHome).absolutePath : "${grailsTestsCheckOutDir}/grails-functional-tests-src"
 ext.projectVersion = project.version
 
-configurations {
-    publish
-    configureEach {
-        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-            if ((details.requested.group == 'org.codehaus.groovy' || details.requested.group == 'org.apache.groovy') && details.requested.name != 'groovy-bom') {
-                details.useTarget(group: 'org.apache.groovy', name: details.requested.name, version: "$groovyVersion")
-                details.because "The dependency coordinates are changed in Apache Groovy 4, plus ensure version"
-            }
-        }
-    }
-}
-
-gdoc2asciidoc {
-    apiLinks = ['org.hibernate'             : 'https://docs.jboss.org/hibernate/orm/current/javadocs/',
-                'org.springframework.boot'  : "https://docs.spring.io/spring-boot/docs/$springBootVersion/api",
-                'org.springframework'       : "https://docs.spring.io/spring/docs/$springVersion/javadoc-api/",
-                'jakarta.servlet'           : 'https://jakarta.ee/specifications/servlet/6.0/',
-                'java.'                     : 'https://docs.oracle.com/en/java/javase/17/docs/api/',
-                'groovy.'                   : 'https://docs.groovy-lang.org/docs/latest/html/api/',
-                'org.codehaus.groovy.grails': "https://docs.grails.org/$githubBranch/api",
-                'grails.orm.'               : 'https://gorm.grails.org/latest/api',
-                'grails.gorm.'              : 'https://gorm.grails.org/latest/api',
-                'grails.'                   : "https://docs.grails.org/$githubBranch/api",
-                'org.grails.'               : "https://docs.grails.org/$githubBranch/api"
-    ]
-    resourcesDir = file("resources")
-    srcDir = file("src/en")
+dependencies {
+    implementation platform("org.grails:grails-bom:${project['grails.version']}")
+    implementation "org.grails:grails-docs"
+    implementation "org.apache.groovy:groovy"
 }
 
 task buildscriptDependencies(type: DependencyReportTask) {
@@ -111,9 +90,13 @@ tasks.register('fetchGrailsSource', grails.doc.FetchGrailsSourceTask) {
     onlyIf { !explicitGrailsHome }
 }
 
+tasks.register('fetchGrailsTestsSource', grails.doc.FetchGrailsTestsSourceTask) {
+    onlyIf { !explicitGrailsTestsHome }
+}
+
 tasks.register("editProjectArtificat", Exec) {
     onlyIf { project.hasProperty("editGrailsVersion") }
-    dependsOn 'fetchGrailsSource'
+    dependsOn 'fetchGrailsSource', 'fetchGrailsTestsSource'
 
     executable Os.isFamily(Os.FAMILY_WINDOWS) ? "cmd" : "bash"
     args Os.isFamily(Os.FAMILY_WINDOWS) ? "/c" : "-c", "sed -i 's/^projectVersion.*\$/projectVersion=$version/' ${grailsHome}/gradle.properties"
@@ -121,7 +104,7 @@ tasks.register("editProjectArtificat", Exec) {
 
 tasks.register("apiDocs", Exec) {
     onlyIf { !System.getProperty("disable.groovydocs") }
-    dependsOn 'fetchGrailsSource'
+    dependsOn 'fetchGrailsSource', 'fetchGrailsTestsSource'
 
     inputs.files(fileTree(grailsHome) {
         exclude '**/*.lock'
@@ -144,8 +127,21 @@ tasks.register('extractPomVersions', grails.doc.ExtractPomVersionsTask) {
     pomFile = downloadPom.outputs.files.singleFile
 }
 
+tasks.register('resolveGroovyVersion') {
+    group = 'documentation'
+    description = 'Resolve Groovy Version from the BOM'
+    ext.resolved = configurations.compileClasspath
+            .resolvedConfiguration
+            .resolvedArtifacts
+            .find {
+                it.moduleVersion.id.group == 'org.apache.groovy' &&
+                        it.moduleVersion.id.name.contains('groovy')
+            }.moduleVersion.id.version
+    logger.lifecycle('Resolved Groovy version for Guide links: {}', resolved)
+}
+
 tasks.register('publishGuide', grails.doc.gradle.PublishGuide) {
-    dependsOn(['apiDocs', 'extractPomVersions', 'jar'])
+    dependsOn(['apiDocs', 'extractPomVersions', 'jar', 'resolveGroovyVersion'])
     targetDir = project.layout.buildDirectory.dir("manual").get().asFile
 
     doFirst {
@@ -163,9 +159,10 @@ tasks.register('publishGuide', grails.doc.gradle.PublishGuide) {
         propertiesFiles = [new File(projectDir, "gradle.properties")]
         asciidoc = true
         properties = [
+                'safe'     : 'UNSAFE',
                 'jakartaee'          : "https://jakarta.ee/specifications/platform/10/apidocs/",
                 'javase'             : "https://docs.oracle.com/en/java/javase/17/docs/api/",
-                'groovyapi'          : "https://docs.groovy-lang.org/${groovyVersion}/html/gapi/",
+                'groovyapi'          : "https://docs.groovy-lang.org/${resolveGroovyVersion.resolved}/html/gapi/",
                 'springapi'          : "https://docs.spring.io/spring/docs/${springVersion}/javadoc-api/",
                 'springdocs'         : "https://docs.spring.io/spring/docs/${springVersion}/",
                 'gspdocs'            : "https://gsp.grails.org/${gspVersion}",
@@ -176,7 +173,11 @@ tasks.register('publishGuide', grails.doc.gradle.PublishGuide) {
                 'springBootReference': "https://docs.spring.io/spring-boot/docs/${springBootVersion}/reference",
                 'springBootVersion'  : project.springBootVersion,
                 'springVersion'      : project.springVersion,
-                'gradleVersion'      : project.gradleVersion
+                'gradleVersion'      : project.gradleVersion,
+                'GrailsVersion'      : project['grails.version'],
+                'version'      : project['grails.version'],
+                'sourcedir'          : grailsHome,
+                'functionalSourceDir': grailsTestsHome,
         ]
         // Parse the string content into Properties object
         def props = new Properties()
